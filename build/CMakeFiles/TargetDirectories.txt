@@ -1,0 +1,2 @@
+/Users/tesch/Library/CloudStorage/Dropbox/Projekte/esphome-standalone/build/CMakeFiles/edit_cache.dir
+/Users/tesch/Library/CloudStorage/Dropbox/Projekte/esphome-standalone/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,238 @@
+{
+  "version": 2,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "description": "Sets the generator, toolchain, build directory",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "environment": {
+        "CMAKE_BUILD_PARALLEL_LEVEL": "8"
+      },
+      
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": {
+          "type": "FILEPATH",
+          "value": "install"
+        }
+      }
+    },
+    {
+      "name": "debug",
+      "hidden": true,
+      "description": "Sets build type cache variables",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "hidden": true,
+      "description": "Sets build type cache variables",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "FreeRtos",
+      "hidden": true,
+      "description": "Sets OS cache variables, subdir variable",
+      "cacheVariables": {
+        "OS_TYPE": "FreeRtos",
+        "OS_TYPE_LOWER": "freertos",
+        "OSAL_FREERTOS": "1"
+      },
+      "environment": {
+        "OS_TYPE": "FreeRtos",
+        "OS_TYPE_LOWER": "freertos",
+        "OSAL_FREERTOS": "1"
+      }
+    },
+    {
+      "name": "am243x-lp_std_debug",
+      "displayName": "AM243x LP FreeRTOS - Debug",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "debug"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM243X/Launchpad/SingleCore/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am243x-lp_std_release",
+      "displayName": "AM243x LP FreeRTOS - Release",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "release"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM243X/Launchpad/SingleCore/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am243x-lp_fbtl_prov_debug",
+      "displayName": "AM243x LP FBTL Provider - Debug",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "debug"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM243X/Launchpad/FBTL/Provider/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am243x-lp_fbtl_app_debug",
+      "displayName": "AM243x LP FBTL Application - Debug",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "debug"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM243X/Launchpad/FBTL/Application/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am243x-evm_std_debug",
+      "displayName": "AM243x EVM FreeRTOS - Debug",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "debug"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM243X/EVM/SingleCore/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am243x-evm_std_release",
+      "displayName": "AM243x EVM FreeRTOS - Release",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "release"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM243X/EVM/SingleCore/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am64xx-evm_fbtl_prov_debug",
+      "displayName": "AM64xx EVM FBTL Provider - Debug",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "debug"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM64XX/EVM/FBTL/Provider/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am64xx-evm_fbtl_app_debug",
+      "displayName": "AM64xx EVM FBTL Application - Debug",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "debug"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM64XX/EVM/FBTL/Application/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am64xx-evm_debug",
+      "displayName": "AM64xx EVM - Debug",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "debug"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM64XX/EVM/SingleCore/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am64xx-evm_release",
+      "displayName": "AM64xx EVM - Release",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "release"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/FreeRTOS/AM64XX/EVM/SingleCore/toolchain_ti.cmake"
+        }
+      }
+    },
+    {
+      "name": "am64xx-evm_unit_test",
+      "displayName": "Unit Test AM64x EVM",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "debug"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/test/am64x/EVM/toolchain_unit_tests_evm.cmake"
+        }
+      }
+    },
+    {
+      "name": "am243x_unit_test",
+      "displayName": "Unit Test AM243X ALX",
+      "description": "Sets board and test cache variables, target toolchain",
+      "inherits": [
+        "base",
+        "debug"
+      ],
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/configure/cmakeToolchainFiles/test/am243x/Launchpad/toolchain_unit_tests_launchpad.cmake"
+        }
+      }
+    }
+  ]
+}
